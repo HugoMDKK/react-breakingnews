@@ -11,7 +11,7 @@ export function Navbar() {
 
       <ImageLogo src={logo} alt="Logo Breaking News" />
 
-      <Button>Entrar</Button>
+      <Button>ENTRAR</Button>
     </Nav>
   );
 }

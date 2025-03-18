@@ -1,34 +1,34 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700;1,6..72,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+  --font-primary: 'Newsreader', Arial, sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Newsreader', Arial, sans-serif;
+  font-family: Newsreader, Arial;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  width: auto; /* Evita ultrapassagem horizontal */
-  height: auto;
-  overflow-x: hidden; /* Remove a rolagem horizontal */
-  background-color: #f5f5f5;
+  overflow-x: hidden;
+  background-color: #e6e6e6;
+  width: auto;
 }
 
 body {
+  padding-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  
+  justify-content: flex-start;   
+  height: 100vh;
 }
 
 #root {
-  margin: 0;
-  padding: 0;
   width: 100%;
 }
 `;

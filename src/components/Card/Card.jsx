@@ -1,27 +1,30 @@
 import { TextLimit } from "../../TextLimit/TextLimit.jsx";
-import { CardBody, CardContainer, CardFooter } from "./CardStyle";
+import { CardBody, CardContainer, CardFooter, CardHeader } from "./CardStyle";
 
-export function Card( props ) {
+export function Card(props) {
   return (
     <CardContainer>
       <CardBody>
         <div>
-          <h2>{props.title}</h2>
-          <img src={props.banner} alt={props.title} />          
-        </div>
-      <TextLimit text={props.text} limit={200} />
-      </CardBody>
+          <CardHeader  top={props.top}>
+            <h2>{props.title}</h2>
+            <TextLimit text={props.text} limit={200} />
+          </CardHeader>
 
-      <CardFooter>
-        <div>
-          <i className="bi bi-hand-thumbs-up"></i>
-          <span>{props.likes}</span>
+          <CardFooter>
+            <section>
+              <i className="bi bi-hand-thumbs-up"></i>
+              <span>{props.likes?.length}</span>
+            </section>
+            <section>
+              <i className="bi bi-chat"></i>
+              <span>{props.comments?.length}</span>
+            </section>
+          </CardFooter>
         </div>
-        <div>
-          <i className="bi bi-chat"></i>
-          <span>{props.comments}</span>
-        </div>
-      </CardFooter>
+
+        <img src={props.banner} alt="Imagem" />
+      </CardBody>
     </CardContainer>
   );
 }
