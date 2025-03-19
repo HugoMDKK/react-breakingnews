@@ -20,12 +20,11 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <Navbar />
+    <>      
       <Homehead>
   {topNew && topNew.title ? (
     <Card
-      top={true}
+      top="true"
       title={topNew.title}
       text={topNew.text}
       banner={topNew.banner}
