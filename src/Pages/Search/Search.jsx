@@ -1,7 +1,10 @@
+import { useParams } from "react-router-dom";
+
 export function Search() {
-    return (
-        <div>
-            <h1>Search</h1>
-        </div>
-    )
+  const { title } = useParams();
+  return (
+    <div>
+      <h1>{title}</h1>
+    </div>
+  );
 }
