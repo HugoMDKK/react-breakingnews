@@ -3,6 +3,7 @@ import { Card } from "../../components/Card/Card.jsx";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { getAllNews, getTopNew } from "../../services/newsService.js";
 import { HomeBody, Homehead } from "./HomeStyled.jsx";
+import Cookies from "js-cookie";
 
 export default function Home() {
   const [news, setNews] = useState([]);
@@ -17,6 +18,7 @@ export default function Home() {
   }
   useEffect(() => {
     findAllNews();
+    console.log(Cookies.get("token"));
   }, []);
 
   return (

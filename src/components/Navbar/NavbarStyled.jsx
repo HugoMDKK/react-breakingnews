@@ -64,11 +64,11 @@ export const InputSpace = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 0.2rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   border: none;
   background-color: #0bade3;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;

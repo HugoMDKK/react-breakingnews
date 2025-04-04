@@ -2,17 +2,11 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../images/LogoBN.png";
 import { Button, ErrorSpan, ImageLogo, InputSpace, Nav } from "./NavbarStyled";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const searchSchema = z.object({
-  title: z
-    .string()
-    .nonempty("Campo obrigatório")
-    .refine((value) => !/^\s+$/.test(value), {
-      message: "Não é permitido espaços em branco",
-    }),
-});
+import { searchSchema } from "../../schema/SearchSchema";
+import { userLogged } from "../../services/userServices";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 export function Navbar() {
   const {
@@ -30,6 +24,20 @@ export function Navbar() {
     navigate(`/search/${title}`);
     reset();
   }
+
+  async function findUserLogged() {
+    try {
+      const response = await userLogged();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+   if(Cookies.get("token")) findUserLogged();
+  }, []);
+
   return (
     <div>
       <Nav>
@@ -51,7 +59,11 @@ export function Navbar() {
           <ImageLogo src={logo} alt="Logo Breaking News" />
         </Link>
 
-        <Button>ENTRAR</Button>
+        <Link to="/auth">
+          <Button type="Button" text="Entrar">
+            ENTRAR
+          </Button>
+        </Link>
       </Nav>
 
       {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
